@@ -37,7 +37,7 @@ public class BaseTest {
     private String fakeUserName;
     private String fakeAddress;
     private AlertsPage alertsPage;
-    private RadioButtons radioButtons1;
+
 
 
     @BeforeClass
