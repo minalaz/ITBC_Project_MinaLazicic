@@ -36,6 +36,8 @@ public class BaseTest {
     private String fakeName;
     private String fakeUserName;
     private String fakeAddress;
+    private AlertsPage alertsPage;
+    private RadioButtons radioButtons1;
 
 
     @BeforeClass
@@ -48,6 +50,7 @@ public class BaseTest {
         checkBox = new CheckBox(driver, wait);
         radioButtons = new RadioButtons(driver, wait);
         modalDialogs = new ModalDialogs(driver, wait);
+        alertsPage = new AlertsPage(driver, wait);
         menu = new Menu(driver, wait);
         droppable = new Droppable(driver, wait);
         bookStoreApplicationPage = new BookStoreApplicationPage(driver, wait);
@@ -85,11 +88,15 @@ public class BaseTest {
     }
 
     public RadioButtons getRadioButtons() {
-        return this.radioButtons;
+        return radioButtons;
     }
 
     public ModalDialogs getModalDialogs() {
         return this.modalDialogs;
+    }
+
+    public AlertsPage getAlertsPage() {
+        return this.alertsPage;
     }
 
 
@@ -122,9 +129,17 @@ public class BaseTest {
         return this.invalidUserName;
     }
 
-    public String getFakeName(){return this.fakeName;}
-    public String getFakeUserName(){return this.fakeUserName;}
-    public String getFakeAddress(){return this.fakeAddress;}
+    public String getFakeName() {
+        return this.fakeName;
+    }
+
+    public String getFakeUserName() {
+        return this.fakeUserName;
+    }
+
+    public String getFakeAddress() {
+        return this.fakeAddress;
+    }
 
 
     @BeforeMethod
@@ -186,12 +201,10 @@ public class BaseTest {
         Point topRight2 = r2.getPoint().moveBy(r2.getWidth(), 0);
         Point bottomLeft2 = r2.getPoint().moveBy(0, r2.getHeight());
 
-        if (topRight1.getY() > bottomLeft2.getY()
-                || bottomLeft1.getY() < topRight2.getY()) {
+        if (topRight1.getY() > bottomLeft2.getY() || bottomLeft1.getY() < topRight2.getY()) {
             return false;
         }
-        if (topRight1.getX() < bottomLeft2.getX()
-                || bottomLeft1.getX() > topRight2.getX()) {
+        if (topRight1.getX() < bottomLeft2.getX() || bottomLeft1.getX() > topRight2.getX()) {
             return false;
         }
         return true;
